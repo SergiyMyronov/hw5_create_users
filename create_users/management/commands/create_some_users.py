@@ -1,11 +1,11 @@
-from django.contrib.auth.hashers import make_password
 from django.contrib.auth import get_user_model
+from django.contrib.auth.hashers import make_password
 from django.core.management.base import BaseCommand
 from django.utils.crypto import get_random_string
 
 
 class Command(BaseCommand):
-    help = 'Creating some random users'
+    help = 'Creating some random users' # noqa
 
     def add_arguments(self, parser):
         parser.add_argument('num', type=int, help='Number of new users')
