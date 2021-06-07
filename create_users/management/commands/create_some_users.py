@@ -8,13 +8,10 @@ class Command(BaseCommand):
     help = 'Creating some random users' # noqa
 
     def add_arguments(self, parser):
-        parser.add_argument('num', type=int, help='Number of new users')
+        parser.add_argument('num', type=int, choices=range(1, 11), help='Number of new users')
 
     def handle(self, *args, **kwargs):
         num = kwargs['num']
-        if num < 1 or num > 10:
-            self.stdout.write(self.style.ERROR('Error - number of users must be in the range [1..10]'))
-            return
 
         obj_list = []
         user_model = get_user_model()
